@@ -38,9 +38,34 @@
               photoForm.controls['url']?.touched &&
               photoForm.controls['url']?.hasError('required')
             "
-            >url is required</mat-error
+            >Url is required</mat-error
           >
         </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <label>Thumbnail Url</label>
+          <input
+            matInput
+            placeholder="Enter Photo thumbnailUrl"
+            name="thumbnailUrl"
+            [(ngModel)]="newPhoto.thumbnailUrl"
+            required
+          />
+          <mat-error
+            *ngIf="
+              photoForm.controls['thumbnailUrl']?.touched &&
+              photoForm.controls['thumbnailUrl']?.hasError('required')
+            "
+            >Thumbnail Url is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <button mat-raised-button color="primary" [disabled]="!photoForm.valid">
+          Add New Photo
+        </button>
       </div>
     </form>
   </mat-card-content>
