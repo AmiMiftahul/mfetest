@@ -1,1 +1,47 @@
-<p>add works!</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Add New Photo</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form #photoForm="ngForm" (ngSubmit)="savePhoto()">
+      <div class="form-group">
+        <mat-form-field>
+          <label>Title</label>
+          <input
+            matInput
+            placeholder="Enter Photo Title"
+            name="title"
+            [(ngModel)]="newPhoto.title"
+            required
+          />
+          <mat-error
+            *ngIf="
+              photoForm.controls['title']?.touched &&
+              photoForm.controls['title']?.hasError('required')
+            "
+            >Title is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+      <div class="form-group">
+        <mat-form-field>
+          <label>url</label>
+          <input
+            matInput
+            placeholder="Enter Photo url"
+            name="url"
+            [(ngModel)]="newPhoto.url"
+            required
+          />
+          <mat-error
+            *ngIf="
+              photoForm.controls['url']?.touched &&
+              photoForm.controls['url']?.hasError('required')
+            "
+            >url is required</mat-error
+          >
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

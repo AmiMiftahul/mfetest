@@ -14,7 +14,15 @@ import { HttpClientModule } from '@angular/common/http';
   styleUrl: './photos.component.scss',
 })
 export class PhotosComponent implements OnInit {
-  displayColumns = ['select', 'userId', 'id', 'title', 'body', 'actions'];
+  displayColumns = [
+    'select',
+    'albumId',
+    'id',
+    'title',
+    'url',
+    'thumbnailUrl',
+    'actions',
+  ];
 
   dataSource = new MatTableDataSource<Photo>();
 

@@ -10,6 +10,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -22,6 +23,7 @@ import { HttpClient } from '@angular/common/http';
     MatTableModule,
     MatCardModule,
     HttpClientModule,
+    FormsModule
   ],
   providers: [provideAnimationsAsync(), HttpClient],
   bootstrap: [AppComponent],

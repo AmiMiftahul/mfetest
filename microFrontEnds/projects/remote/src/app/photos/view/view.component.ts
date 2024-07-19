@@ -11,7 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ViewComponent {
   photoDetails!: Photo;
-  photoId!: Number;
+  photoId!: number;
 
   constructor(
     private photosService: PhotosService,
