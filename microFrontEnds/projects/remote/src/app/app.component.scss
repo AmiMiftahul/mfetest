@@ -1,0 +1,24 @@
+// HEADER
+.header-spacer {
+    flex: 1 1 auto;
+  }
+  .header-toolbar {
+    background-color: blue;
+    color: #fffe;
+    .header-title {
+      padding-left: 250px;
+    }
+  }
+  
+  // SIDEBAR
+  .content-container {
+    height: 100%;
+    border: 1px solid #ccc;
+    min-height: 100vh;
+  }
+  .sidebar {
+    background-color: #f3f2;
+    height: 100%;
+    width: 250px;
+  }
+  
