@@ -1,1 +1,20 @@
-<p>view works!</p>
+<button class="back-button" mat-button routerLink="/photos">
+  <mat-icon>arrow_back</mat-icon>
+  Back
+</button>
+<mat-card class="detail-card" appearance="outlined">
+  <mat-card-header>
+    <mat-card-title-group>
+      <mat-card-title>{{ photoDetails.userId }}</mat-card-title>
+      <mat-card-subtitle>{{ photoDetails.id }}</mat-card-subtitle>
+    </mat-card-title-group>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-card class="mat-card">
+      <ng-container *ngIf="photoDetails">
+        <div>{{ photoDetails.title }}</div>
+        <div>{{ photoDetails.body }}</div>
+      </ng-container>
+    </mat-card>
+  </mat-card-content>
+</mat-card>

@@ -12,6 +12,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSortModule } from '@angular/material/sort';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     PhotosComponent,
@@ -29,6 +31,8 @@ import { MatSortModule } from '@angular/material/sort';
     MatPaginatorModule,
     MatCheckboxModule,
     MatSortModule,
+    MatButtonModule,
+    MatIconModule
   ],
 })
 export class PhotosModule {}

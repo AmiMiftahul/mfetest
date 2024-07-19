@@ -2,12 +2,13 @@
 <mat-toolbar class="header-toolbar">
   <button
     mat-icon-button
+    (click)="toggleSidebar()"
     class="example-icon"
     aria-label="Example icon-button with menu icon"
   >
     <mat-icon>menu</mat-icon>
   </button>
-  <span class="header-title">My App</span>
+  <span class="header-title">MICRO FRONT END</span>
   <span class="header-spacer"></span>
   <button
     mat-icon-button
@@ -26,9 +27,10 @@
 </mat-toolbar>
 <!-- SIDEBAR-->
 <mat-drawer-container class="content-container">
-  <mat-drawer mode="side" opened="true" class="sidebar"> SIDEBAR </mat-drawer>
+  <mat-drawer mode="side" [opened]="sidebarOpen" class="sidebar">
+    SIDEBAR
+  </mat-drawer>
   <mat-drawer-content class="main-content">
-    <h1> CONTENT REMOTE</h1>
     <router-outlet></router-outlet>
   </mat-drawer-content>
 </mat-drawer-container>

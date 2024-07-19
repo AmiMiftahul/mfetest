@@ -17,6 +17,10 @@
     <mat-card-content>10</mat-card-content>
   </mat-card>
 </div>
+<!-- FOR ADD -->
+<div class="add-button">
+  <button mat-stroked-button routerLink="add">Add</button>
+</div>
 <!-- FOR TABLE PHOTOS -->
 <mat-card class="mat-card">
   <mat-card-header>
@@ -30,6 +34,7 @@
           <mat-checkbox></mat-checkbox>
         </td>
       </ng-container>
+
       <!-- FETCH TABLE -->
       <ng-container matColumnDef="userId">
         <th mat-header-cell *matHeaderCellDef>User Id</th>
@@ -47,7 +52,15 @@
         <th mat-header-cell *matHeaderCellDef>Body</th>
         <td mat-cell *matCellDef="let element">{{ element.body }}</td>
       </ng-container>
-
+      <!-- ACTION BUTTON -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Action</th>
+        <td mat-cell *matCellDef="let element" class="action-button">
+          <a [routerLink]="['view', element.id]"><mat-icon>open_in_new</mat-icon></a>|
+          <a [routerLink]="['edit', element.id]"><mat-icon>edit</mat-icon></a>|
+          <a [routerLink]="['delete', element.id]"><mat-icon>delete</mat-icon></a>
+        </td>
+      </ng-container>
       <tr mat-header-row *matHeaderRowDef="displayColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayColumns"></tr>
     </table>

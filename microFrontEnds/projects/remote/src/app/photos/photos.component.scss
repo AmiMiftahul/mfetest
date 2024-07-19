@@ -1,9 +1,21 @@
-.mat-card{
-    margin:20px
+.mat-card {
+  margin: 20px;
 }
 
 .count-card {
-    width: 24%;
-    margin: 5px;
-    padding: 20px;
+  width: 24%;
+  margin: 5px;
+  padding: 20px;
+}
+
+.add-button {
+  margin: 25px;
+  display: flex;
+  
+  align-items: center;
+}
+
+.action-button {
+    text-align: right;
+    white-space: nowrap;
 }
