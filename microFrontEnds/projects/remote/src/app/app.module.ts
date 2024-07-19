@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -8,7 +7,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatTableModule } from '@angular/material/table';
-import {MatCardModule} from '@angular/material/card';
+import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -18,9 +20,10 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatSidenavModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    HttpClientModule,
   ],
-  providers: [provideAnimationsAsync()],
+  providers: [provideAnimationsAsync(), HttpClient],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
