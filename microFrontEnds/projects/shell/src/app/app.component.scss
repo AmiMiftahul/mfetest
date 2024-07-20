@@ -1,4 +1,25 @@
-.example-spacer {
+// HEADER
+.header-spacer {
     flex: 1 1 auto;
   }
-  
+.header-toolbar {
+    background-color: #ff6600;
+    color: #fffe;
+    .header-title{
+        padding-left: 250px;
+    }
+}
+
+// SIDEBAR
+.content-container{
+    height: 100%;
+    border:1px solid #ccc;
+    min-height: 100vh;
+}
+.sidebar {
+    background-color: #006699;
+    height: 100%;
+    width: 250px;
+}
+
+

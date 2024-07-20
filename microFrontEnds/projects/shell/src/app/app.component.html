@@ -1,16 +1,38 @@
-<mat-toolbar>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+<mat-toolbar class="header-toolbar">
+  <button
+    mat-icon-button
+    (click)="toggleSidebar()"
+    class="example-icon"
+    aria-label="Example icon-button with menu icon"
+  >
     <mat-icon>menu</mat-icon>
   </button>
-  <span>My App</span>
-  <span class="example-spacer"></span>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+  <span class="header-title">HOME</span>
+  <span class="header-spacer"></span>
+  <button
+    mat-icon-button
+    class="example-icon favorite-icon"
+    aria-label="Example icon-button with heart icon"
+  >
     <mat-icon>favorite</mat-icon>
   </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+  <button
+    mat-icon-button
+    class="example-icon"
+    aria-label="Example icon-button with share icon"
+  >
     <mat-icon>share</mat-icon>
   </button>
 </mat-toolbar>
-
-
-<router-outlet />
+<!-- SIDEBAR-->
+<mat-drawer-container class="content-container">
+  <mat-drawer mode="side" [opened]="sidebarOpen" class="sidebar">
+    <mat-nav-list class="side-nav-list">
+      <a mat-list-item class="nav-list" routerLink="/">Dashboard (Shell) </a>
+      <a mat-list-item class="nav-list" routerLink="/photos">Photos (Mfe)</a>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content class="main-content">
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

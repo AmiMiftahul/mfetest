@@ -14,11 +14,6 @@ const routes: Routes = [
   { path: 'edit/:id', component: EditComponent },
   { path: 'delete/:id', component: DeleteComponent },
   { path: '**', component: PageNotFoundComponent },
-  {
-    path: 'photos/add',
-    loadComponent: () =>
-      import('./add/add.component').then((m) => m.AddComponent),
-  },
 ];
 
 @NgModule({

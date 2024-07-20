@@ -11,7 +11,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "shell",
-    publicPath: "auto"
+    publicPath: "auto",
+   
   },
   optimization: {
     runtimeChunk: false
@@ -26,29 +27,22 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-        library: { type: "module" },
+      library: { type: "module" },
 
-        // For remotes (please adjust)
-        // name: "shell",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/shell/src/app/app.component.ts',
-        // },
+      // For HOST
+      name: "shell",
+      remotes: {
+        "remote": "http://localhost:4200/remoteEntry.js",
+      },
 
-        // For hosts (please adjust)
-        // remotes: {
-        //     "remote": "http://localhost:4200/remoteEntry.js",
+      shared: share({
+        "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
+        "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
 
-        // },
-
-        shared: share({
-          "@angular/core": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/common/http": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-          "@angular/router": { singleton: true, strictVersion: true, requiredVersion: 'auto' },
-
-          ...sharedMappings.getDescriptors()
-        })
+        ...sharedMappings.getDescriptors()
+      })
 
     }),
     sharedMappings.getPlugin()
