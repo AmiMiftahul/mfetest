@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Photo } from '../models/photos';
@@ -31,7 +32,7 @@ export class PhotosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private photosService: PhotosService) {}
+  constructor(private photosService: PhotosService, private router: Router) {}
 
   ngOnInit(): void {
     this.photosService.getPhotos().subscribe((photos) => {
@@ -44,6 +45,13 @@ export class PhotosComponent implements OnInit {
 
   selectHandler(row: Photo): void {
     this.selection.toggle(row);
+  }
+
+  async customNavigate(url: string): Promise<void> {
+    const fixedUrl = 'photos/' + url;
+    // await this.router.navigateByUrl('fix');
+    await this.router.navigateByUrl(fixedUrl);
+    // window.location.href = arrayUrl[0];
   }
 
   isAllSelected(): boolean {

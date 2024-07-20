@@ -1,3 +1,4 @@
+import { provideHttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -20,9 +21,9 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HighchartsChartModule } from 'highcharts-angular';
 import { SalesByDayComponent } from './sales-by-day/sales-by-day.component';
 import { SalesByCategoryComponent } from './sales-by-category/sales-by-category.component';
-import { LastFewTransactionComponent } from './last-few-transaction/last-few-transaction.component';
 import { FooterComponent } from './footer/footer.component';
-//
+import { ChartModule } from 'angular-highcharts';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,7 +34,6 @@ import { FooterComponent } from './footer/footer.component';
     MainComponent,
     SalesByDayComponent,
     SalesByCategoryComponent,
-    LastFewTransactionComponent,
     FooterComponent,
   ],
   imports: [
@@ -46,10 +46,12 @@ import { FooterComponent } from './footer/footer.component';
     RouterModule,
     FontAwesomeModule,
     HighchartsChartModule,
+    ChartModule,
   ],
   providers: [
     provideAnimationsAsync(),
     provideCharts(withDefaultRegisterables()),
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent],
 })

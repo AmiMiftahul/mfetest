@@ -3,18 +3,23 @@
   Back
 </button>
 <mat-card class="detail-card" appearance="outlined">
+  <h3>INFO PHOTO:</h3>
   <mat-card-header>
     <mat-card-title-group>
-      <mat-card-title>{{ photoDetails?.albumId }}</mat-card-title>
-      <mat-card-subtitle>{{ photoDetails?.id }}</mat-card-subtitle>
+      <mat-card-title
+        ><span>Album Id: </span>{{ photoDetails.albumId }}</mat-card-title
+      >
+      <mat-card-subtitle
+        ><span>Photo Id: </span>{{ photoDetails.id }}</mat-card-subtitle
+      >
     </mat-card-title-group>
   </mat-card-header>
   <mat-card-content>
     <mat-card class="mat-card">
-      <ng-container *ngIf="photoDetails">
-        <div>{{ photoDetails?.title }}</div>
-        <div>{{ photoDetails?.url }}</div>
-        <div>{{ photoDetails?.thumbnailUrl }}</div>
+      <ng-container>
+        <div><span>Title :</span>{{ photoDetails.title }}</div>
+        <div><span>Url :</span>{{ photoDetails.url }}</div>
+        <div><span>Thumbnail Url :</span>{{ photoDetails.thumbnailUrl }}</div>
       </ng-container>
     </mat-card>
   </mat-card-content>

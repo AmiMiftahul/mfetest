@@ -18,7 +18,7 @@ export class PhotosService {
 
   // FOR VIEW ALL
   getPhotos(): Observable<Photo[]> {
-    return this.httpClient.get<Photo[]>(this.apiUrl);
+    return this.httpClient.get<Photo[]>(this.apiUrl + '?_start=0&_limit=100');
   }
 
   // FOR VIEW BY ID

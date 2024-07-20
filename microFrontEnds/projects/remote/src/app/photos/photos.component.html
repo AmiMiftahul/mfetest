@@ -1,8 +1,7 @@
 <!-- FOR CARD PHOTOS -->
 <div style="display: flex; flex-direction: row">
   <mat-card class="mat-card count-card">
-    <mat-card-title>BEST PHOTO
-      </mat-card-title>
+    <mat-card-title>BEST PHOTO </mat-card-title>
     <mat-card-content>-</mat-card-content>
   </mat-card>
   <mat-card class="mat-card count-card">
@@ -20,7 +19,7 @@
 </div>
 <!-- FOR ADD -->
 <div class="add-button">
-  <button mat-stroked-button routerLink="add">Add</button>
+  <button mat-stroked-button (click)="customNavigate('add')">Add</button>
 </div>
 <!-- FOR TABLE PHOTOS -->
 <mat-card class="mat-card">

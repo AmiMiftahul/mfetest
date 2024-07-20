@@ -41,8 +41,10 @@ export class EditComponent {
   onSubmit() {
     if (this.editPhotoForm.valid) {
       const updatedFormData: Photo = this.editPhotoForm.value;
-      console.log(updatedFormData);
+      // console.log(updatedFormData);
       this.photoService.updatePhoto(updatedFormData);
+      alert('Photo updated successfully')
+      console.log(updatedFormData);
     }
   }
 }

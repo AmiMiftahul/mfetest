@@ -22,6 +22,7 @@ import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient } from '@angular/common/http';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
@@ -33,8 +34,8 @@ import { HttpClientModule } from '@angular/common/http';
     PageNotFoundComponent,
   ],
   imports: [
-    CommonModule,
-    RouterModule,
+    // CommonModule,
+    // RouterModule,
     PhotosRoutingModule,
     MatCardModule,
     MatTableModule,
@@ -47,10 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    BrowserModule,
-    HttpClientModule,
+    // BrowserModule,
+    // HttpClientModule,
     // BrowserAnimationsModule,
   ],
-  providers: [HttpClient],
+  providers: [provideHttpClient()],
 })
 export class PhotosModule {}

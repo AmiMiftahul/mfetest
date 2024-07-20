@@ -8,18 +8,12 @@
         <mat-form-field class="half-width">
           <label>Title</label>
           <input matInput placeholder="Photo Title" formControlName="title" />
-          <mat-error *ngIf="editPhotoForm.get('title')?.hasError('required')">
-            Title is required</mat-error
-          >
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field class="half-width">
           <label>Url</label>
           <input matInput placeholder="Photo Url" formControlName="url" />
-          <mat-error *ngIf="editPhotoForm.get('url')?.hasError('required')">
-            Title is required</mat-error
-          >
         </mat-form-field>
       </div>
       <div class="form-group">
@@ -30,15 +24,17 @@
             placeholder="Photo Thumbnail Url"
             formControlName="thumbnailUrl"
           />
-          <mat-error
-            *ngIf="editPhotoForm.get('thumbnailUrl')?.hasError('required')"
-          >
-            Title is required</mat-error
-          >
         </mat-form-field>
       </div>
 
-      <button mat-raised-button color="primary" type="submit" [disabled]="!editPhotoForm.valid">Edit Photo</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!editPhotoForm.valid"
+      >
+        Edit Photo
+      </button>
     </form>
   </mat-card-content>
 </mat-card>

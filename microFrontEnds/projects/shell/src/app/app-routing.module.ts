@@ -1,3 +1,4 @@
+import { MainComponent } from './main/main.component';
 // import { PhotosModule } from './../../../remote/src/app/photos backu/photos.module';
 // import { PhotosComponent } from './../../../remote/src/app/photos copy/photos.component';
 import { loadRemoteModule } from '@angular-architects/module-federation';
@@ -7,8 +8,8 @@ import { RouterModule, Routes } from '@angular/router';
 const REMOTE_APP_URL = 'http://localhost:4300/remoteEntry.js';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full', },
-  
+  { path: '', component: MainComponent },
+
   {
     path: 'photos',
     loadChildren: () => {
