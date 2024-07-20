@@ -7,6 +7,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./photos/photos.module').then((m) => m.PhotosModule),
   },
+  
 ];
 
 @NgModule({

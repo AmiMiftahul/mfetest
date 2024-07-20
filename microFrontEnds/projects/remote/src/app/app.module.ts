@@ -11,11 +11,15 @@ import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     MatToolbarModule,
     MatIconModule,
@@ -23,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     MatTableModule,
     MatCardModule,
     HttpClientModule,
-    FormsModule
+    RouterModule.forChild([{ path: '', component: AppComponent }]),
+    FormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [provideAnimationsAsync(), HttpClient],
   bootstrap: [AppComponent],

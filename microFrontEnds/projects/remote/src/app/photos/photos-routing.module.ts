@@ -8,12 +8,17 @@ import { ViewComponent } from './view/view.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
-  { path: '', component: PhotosComponent },
-  { path: 'add', component: AddComponent },
+  { path: 'add', component: AddComponent, pathMatch: 'full' },
+  { path: '', component: PhotosComponent, pathMatch: 'full' },
   { path: 'view/:id', component: ViewComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: 'delete/:id', component: DeleteComponent },
   { path: '**', component: PageNotFoundComponent },
+  {
+    path: 'photos/add',
+    loadComponent: () =>
+      import('./add/add.component').then((m) => m.AddComponent),
+  },
 ];
 
 @NgModule({

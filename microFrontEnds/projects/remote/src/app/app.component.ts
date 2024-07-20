@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'remote';
-  sidebarOpen = true;
-  toggleSidebar(){
-    this.sidebarOpen = this.sidebarOpen? false : true;
-  }
+  // sidebarOpen = true;
+  // toggleSidebar(){
+  //   this.sidebarOpen = this.sidebarOpen? false : true;
+  // }
 }
