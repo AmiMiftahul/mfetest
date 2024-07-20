@@ -7,7 +7,8 @@ import { RouterModule, Routes } from '@angular/router';
 const REMOTE_APP_URL = 'http://localhost:4300/remoteEntry.js';
 
 const routes: Routes = [
-  { path: '', redirectTo: '', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full', },
+  
   {
     path: 'photos',
     loadChildren: () => {
