@@ -11,7 +11,7 @@ export class AddComponent {
   constructor(private photosService: PhotosService, private router: Router) {}
   newPhoto: Photo = {
     albumId: 1,
-    id: 2,
+    id: 0,
     title: '',
     url: '',
     thumbnailUrl: '',
@@ -19,7 +19,14 @@ export class AddComponent {
 
   savePhoto() {
     console.log('Form submitted');
-    this.photosService.createPhoto(this.newPhoto).subscribe((data) => {
+    this.photosService.createPhoto(this.newPhoto).subscribe((createdPhoto) => {
+      // console.log(createdPhoto);
+      let storedPhotos: Photo[] = JSON.parse(
+        localStorage.getItem('add') || '[]'
+      );
+      createdPhoto.id = storedPhotos[storedPhotos.length - 1]?.id + 1 || 101;
+      storedPhotos.push(createdPhoto);
+      localStorage.setItem('add', JSON.stringify(storedPhotos));
       alert('Photo added successfully');
       this.router.navigate(['/photos']);
     });

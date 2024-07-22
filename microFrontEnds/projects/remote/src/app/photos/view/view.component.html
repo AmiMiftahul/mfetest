@@ -14,9 +14,9 @@
       >
     </mat-card-title-group>
   </mat-card-header>
-  <mat-card-content>
+  <mat-card-content class="half-width">
     <mat-card class="mat-card">
-      <ng-container>
+      <ng-container >
         <div><span>Title :</span>{{ photoDetails.title }}</div>
         <div><span>Url :</span>{{ photoDetails.url }}</div>
         <div><span>Thumbnail Url :</span>{{ photoDetails.thumbnailUrl }}</div>
@@ -24,3 +24,8 @@
     </mat-card>
   </mat-card-content>
 </mat-card>
+
+
+<div *ngIf="!photoDetails">
+    <p>Loading...</p>
+  </div>

@@ -36,10 +36,49 @@ export class PhotosComponent implements OnInit {
 
   ngOnInit(): void {
     this.photosService.getPhotos().subscribe((photos) => {
-      console.log(photos);
+      // console.log(photos);
       this.dataSource.data = photos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      // show local storage added photo
+      let storedPhotos: Photo[] = JSON.parse(
+        localStorage.getItem('add') || '[]'
+      );
+      if (storedPhotos.length > 0) {
+        this.dataSource.data = [...this.dataSource.data, ...storedPhotos];
+      }
+      //show local storage edited photo
+      let editedPhotos: Photo[] = JSON.parse(
+        localStorage.getItem('edit') || '[]'
+      );
+
+      if (editedPhotos.length > 0) {
+        const revised = [...this.dataSource.data];
+        //loop
+        for (let i = 0; i < editedPhotos.length; i++) {
+          const photo = editedPhotos[i];
+          revised[photo.id - 1] = photo;
+        }
+        this.dataSource.data = revised;
+
+        //forEach
+        // editedPhotos.forEach((photo) => {
+        //   revised[photo.id - 1] = photo;
+        // });
+        // this.dataSource.data = revised;
+      }
+
+      let deletedPhotos: Number[] = JSON.parse(
+        localStorage.getItem('deleted') || '[]'
+      );
+
+      console.log(deletedPhotos);
+      if (deletedPhotos.length > 0) {
+        this.dataSource.data = this.dataSource.data.filter(
+          (each) => deletedPhotos.indexOf(each.id) === -1
+        );
+      }
+      // let deletedPhotos: Photo[] =JSON.parse(localStorage.removeItem())
     });
   }
 

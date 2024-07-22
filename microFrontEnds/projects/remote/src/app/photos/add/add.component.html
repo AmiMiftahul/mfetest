@@ -3,9 +3,9 @@
     <mat-card-title>Add New Photo</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form #photoForm="ngForm" (ngSubmit)="savePhoto()">
+    <form #photoForm="ngForm" class="mat-form-custom" (ngSubmit)="savePhoto()">
       <div class="form-group">
-        <mat-form-field>
+        <mat-form-field class="half-width">
           <label>Title</label>
           <input
             matInput
@@ -24,7 +24,7 @@
         </mat-form-field>
       </div>
       <div class="form-group">
-        <mat-form-field>
+        <mat-form-field class="half-width">
           <label>url</label>
           <input
             matInput
@@ -40,10 +40,10 @@
             "
             >Url is required</mat-error
           >
-        </mat-form-field>
+        </mat-form-field >
       </div>
       <div class="form-group">
-        <mat-form-field>
+        <mat-form-field class="half-width">
           <label>Thumbnail Url</label>
           <input
             matInput

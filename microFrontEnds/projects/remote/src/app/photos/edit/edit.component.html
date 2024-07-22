@@ -3,17 +3,27 @@
     <mat-card-title>Edit Photo</mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <form [formGroup]="editPhotoForm" (ngSubmit)="onSubmit()">
+    <form
+      [formGroup]="editPhotoForm"
+      class="mat-form-custom"
+      (ngSubmit)="onSubmit()"
+    >
       <div class="form-group">
         <mat-form-field class="half-width">
           <label>Title</label>
           <input matInput placeholder="Photo Title" formControlName="title" />
+          <mat-error *ngIf="editPhotoForm.get('title')?.hasError('required')">
+            Title is required</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="form-group">
         <mat-form-field class="half-width">
           <label>Url</label>
           <input matInput placeholder="Photo Url" formControlName="url" />
+          <mat-error *ngIf="editPhotoForm.get('url')?.hasError('required')">
+            Url is required</mat-error
+          >
         </mat-form-field>
       </div>
       <div class="form-group">
@@ -24,6 +34,11 @@
             placeholder="Photo Thumbnail Url"
             formControlName="thumbnailUrl"
           />
+          <mat-error
+            *ngIf="editPhotoForm.get('thumbnailUrl')?.hasError('required')"
+          >
+            Thumbnail Url is required</mat-error
+          >
         </mat-form-field>
       </div>
 

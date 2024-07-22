@@ -11,11 +11,17 @@
 .add-button {
   margin: 25px;
   display: flex;
-  
+
   align-items: center;
 }
 
 .action-button {
-    text-align: right;
-    white-space: nowrap;
+  text-align: right;
+  white-space: nowrap;
+}
+
+.mat-table-custom {
+  table-layout: fixed;
+  width: 100%;
+  display: table;
 }

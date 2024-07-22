@@ -34,7 +34,7 @@ import { provideHttpClient } from '@angular/common/http';
     PageNotFoundComponent,
   ],
   imports: [
-    // CommonModule,
+    CommonModule,
     // RouterModule,
     PhotosRoutingModule,
     MatCardModule,

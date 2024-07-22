@@ -29,3 +29,15 @@
     align-self: flex-start; 
     margin-bottom: 20px; 
   }
+
+  .detail-card {
+    table-layout: fixed;
+    width: 100%;
+    display: table;
+  }
+
+  .half-width {
+    table-layout: fixed;
+    width: 100%;
+    display: table;
+  }

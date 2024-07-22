@@ -6,19 +6,23 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class PhotosService {
-  private apiUrl = 'https://jsonplaceholder.typicode.com/photos/';
+  private apiUrl = 'https://jsonplaceholder.typicode.com/photos';
+// private deletedPhotosKey = 'deletedPhotos';
+private localStorageKey = 'photos'
+
+
   constructor(private httpClient: HttpClient) {}
 
   // CRUD FUNCTIONALITY
 
   // FOR ADD
   createPhoto(photo: Photo): Observable<Photo> {
-    return this.httpClient.post<Photo>(this.apiUrl, photo);
+    return this.httpClient.post<Photo>(this.apiUrl +'/', photo);
   }
 
   // FOR VIEW ALL
   getPhotos(): Observable<Photo[]> {
-    return this.httpClient.get<Photo[]>(this.apiUrl + '?_start=0&_limit=100');
+    return this.httpClient.get<Photo[]>(this.apiUrl+'/' + '?_start=0&_limit=100');
   }
 
   // FOR VIEW BY ID
@@ -36,6 +40,9 @@ export class PhotosService {
   // FOR DELETE
   deletePhoto(id: Number): Observable<void> {
     const url = `${this.apiUrl}/${id}`;
+    // this.markAsDeletedLocally(id)
     return this.httpClient.delete<void>(url);
   }
+
+ 
 }
